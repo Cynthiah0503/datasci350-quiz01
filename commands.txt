@@ -1,0 +1,87 @@
+#question 13
+> git status
+On branch station-upgrade
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+	commands.txt
+
+nothing added to commit but untracked files present (use "git add" to track)
+
+
+
+The log files do not appear because they match the log?.txt pattern in .gitignore.
+
+
+
+#question 15: 
+
+diff --git a/results/summary.md b/results/summary.md
+index 295821a..817eec6 100644
+--- a/results/summary.md
++++ b/results/summary.md
+@@ -1 +1,2 @@
+ Analysis of the first field season.
++      41
+diff --git a/scripts/03-plot.py b/scripts/03-plot.py
+index 70ea841..c5af7da 100644
+--- a/scripts/03-plot.py
++++ b/scripts/03-plot.py
+@@ -1,3 +1,4 @@
++# Reviewed for the field season report
+ # Plot the daily temperature readings
+ # Prints a simple text chart, one bar per reading.
+
+Lines starting with + show lines that were added compared with the previous version.
+
+
+#question 19
+bbe07bb (HEAD -> main, station-upgrade) Update analysis
+c73f9c1 Add gitignore
+fb5f46e Update station files
+47724ba Add results directory
+a22b29e (origin/main, origin/HEAD) docs(readme): note committing commands.txt before task 18 and force push for bonus 2
+b645f85 feat: quiz 01 starter files
+
+
+
+
+
+
+
+
+
+git clone https://github.com/Cynthiah0503/datasci350-quiz01.git
+cd datasci350-quiz01
+touch commands.txt
+git switch -c station-upgrade
+mkdir results
+touch results/summary.md
+echo 'Analysis of the first field season.' >> results/summary.md
+git add results
+git commit -m "Add results directory"
+mv data/sensor-readings.csv data/station-data.csv
+mkdir scripts/archive && cp scripts/*.py scripts/archive
+rm docs/notes.md
+git add .
+git commit -m "Update station files"
+echo 'temp/' > .gitignore
+echo 'log?.txt' >> .gitignore
+echo '.DS_Store' >> .gitignore
+cat .gitignore
+git add .gitignore && git commit -m "Add gitignore"
+touch log{1..4}.txt
+git status
+cat data/station-data.csv | wc -l >> results/summary.md
+sed -i '' '1i\
+# Reviewed for the field season report
+' scripts/03-plot.py
+git diff
+git add .
+git commit -m "Update analyss"
+git commit --amend -m "Update analysis"
+git switch main
+git merge station-upgrade
+git log --oneline
+git add commands.txt
+git commit -m "Add command log"
+git push origin main

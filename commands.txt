@@ -75,6 +75,7 @@ cat data/station-data.csv | wc -l >> results/summary.md
 sed -i '' '1i\
 # Reviewed for the field season report
 ' scripts/03-plot.py
+# -i means in-place in the original file, '' is for mac, 1i\ means to insert before the first line, then the text I want to insert, then the path of the file I want to edit
 git diff
 git add .
 git commit -m "Update analyss"
@@ -85,3 +86,13 @@ git log --oneline
 git add commands.txt
 git commit -m "Add command log"
 git push origin main
+
+
+
+
+
+
+#bonus
+I used the GitHub website and clicked on the pull request, and i called it bonus task try- #48
+#48
+

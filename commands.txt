@@ -96,3 +96,12 @@ git push origin main
 I used the GitHub website and clicked on the pull request, and i called it bonus task try- #48
 #48
 
+
+git rebase -i HEAD~2
+[detached HEAD 282fced] Add command log
+ Date: Thu Sep 24 18:25:03 2026 -0400
+ 1 file changed, 12 insertions(+), 1 deletion(-)
+Successfully rebased and updated refs/heads/main.
+
+ ~/datasci350-quiz01  on main <1>1 --------------------------------------------------------------------- took 44s  at 06:37:50 PM 
+> git log --oneline
